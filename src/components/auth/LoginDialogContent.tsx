@@ -35,8 +35,8 @@ const LoginDialogContent = ({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email: "user@gmail.com",
+      password: "12345678",
       rememberMe: false,
     },
   });
