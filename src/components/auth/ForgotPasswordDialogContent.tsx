@@ -42,7 +42,6 @@ const ForgotPasswordDialogContent = ({
           email: data.email,
         },
       );
-      console.log(response.data);
       toast.success("OTP sent to your email!");
       setEmail(data.email);
       setState(6);

@@ -196,8 +196,6 @@ const ProposeNewTripDialogContent: React.FC<
       })),
     );
 
-    console.log("Payload to POST:", payload);
-
     try {
       setIsPending(true);
       const token = localStorage.getItem("token");

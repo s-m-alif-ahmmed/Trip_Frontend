@@ -51,7 +51,6 @@ const LoginDialogContent = ({
           password: data.password,
         },
       );
-      console.log(response.data.token);
       localStorage.setItem("token", response.data.token);
       handleLoginState();
 

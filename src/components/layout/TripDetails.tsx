@@ -151,7 +151,6 @@ const TripDetails = ({ selectedTrip, onBack }: TripDetailsProps) => {
       toast.success(
         response.data?.message ?? "Booking submitted successfully!",
       );
-      console.log(response.data);
       if (response.data?.data?.payment_url) {
         window.location.assign(response.data.data.payment_url);
       }

@@ -68,7 +68,6 @@ const VerifyRegistrationDialogContent = ({
   async function onSubmit(data: z.infer<typeof formSchema>) {
     try {
       setIsPending(true);
-      console.log(data);
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/verify_otp`,
         {
@@ -76,7 +75,6 @@ const VerifyRegistrationDialogContent = ({
           otp: data.otp,
         },
       );
-      console.log(response.data);
       toast.success("Email verified successfully!");
       setState(3);
       form.reset();

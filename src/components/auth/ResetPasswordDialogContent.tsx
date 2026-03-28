@@ -52,7 +52,6 @@ const ResetPasswordDialogContent = ({
           token: token,
         },
       );
-      console.log(response.data);
       // toast.success("Password reset successfully!");
       setState(8);
       form.reset();

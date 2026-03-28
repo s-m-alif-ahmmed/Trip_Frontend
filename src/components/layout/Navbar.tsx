@@ -22,6 +22,7 @@ const Navbar = () => {
   const { isLoggedIn, setState, userData } = useStateContext();
   const location = useLocation();
   const pathname = location.pathname;
+  const { systemSettingsData, isSystemSettingsPending } = useStateContext();
 
   const imgUserAvatar = "https://i.ibb.co.com/XkYLH2xR/avatar.png";
 
@@ -44,7 +45,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [pathname]);
+  }, [pathname, systemSettingsData]);
 
   return (
     <>
@@ -64,7 +65,15 @@ const Navbar = () => {
           })}
         >
           <Link to="/" className="text-xl block">
-            {t("nav.logo")}
+            {systemSettingsData?.data?.logo ? (
+              <img
+                src={systemSettingsData?.data?.logo}
+                alt={systemSettingsData?.data?.title || "Logo"}
+                className="h-8 sm:h-10 lg:h-12 w-auto object-contain"
+              />
+            ) : (
+              "Trip"
+            )}
           </Link>
           <div className="flex gap-3 sm:gap-4 lg:gap-5">
             {/* Language Switcher */}

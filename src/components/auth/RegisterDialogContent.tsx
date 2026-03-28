@@ -64,7 +64,6 @@ const RegisterDialogContent = ({
   async function onSubmit(data: z.infer<typeof formSchema>) {
     try {
       setIsPending(true);
-      console.log(data);
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/register`,
         {
@@ -75,7 +74,6 @@ const RegisterDialogContent = ({
           terms: data.agreeToTerms,
         },
       );
-      console.log(response.data);
       toast.success("Registration successful, please verify your account.");
       setEmail(data.email);
       setState(2);

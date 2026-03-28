@@ -75,7 +75,6 @@ const ForgotPasswordVerifyDialogContent = ({
           otp: data.otp,
         },
       );
-      console.log(response.data);
       setToken(response?.data?.token ?? "");
       toast.success("OTP verified successfully!");
       setState(7);

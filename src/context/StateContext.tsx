@@ -76,6 +76,23 @@ const StateContextProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   useEffect(() => {
+    if (systemSettingsData?.data?.title) {
+      document.title = systemSettingsData?.data?.title;
+    }
+    if (systemSettingsData?.data?.favicon) {
+      const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
+      if (link) {
+        link.href = systemSettingsData?.data?.favicon;
+      } else {
+        const newLink = document.createElement("link");
+        newLink.rel = "icon";
+        newLink.href = systemSettingsData?.data?.favicon;
+        document.head.appendChild(newLink);
+      }
+    }
+  }, [systemSettingsData]);
+
+  useEffect(() => {
     const checkScreenSize = () => {
       setIsSmall(window.innerWidth < 768 ? true : false);
     };
